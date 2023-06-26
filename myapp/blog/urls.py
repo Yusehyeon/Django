@@ -7,14 +7,22 @@ app_name = "blog"
 urlpatterns = [
     # path(pattern, mapping)
     # path("", views.index), #FBV
-    # 글 목록 조회
+    # Post 목록 조회
     path("", views.List.as_view(), name="list"),  # index page를 의미함
-    # 글 상세 조회
-    path("detail/<int:pk>/", views.Detail.as_view(), name="detail"),
-    # 글 작성
+    # Post 상세 조회
+    path("detail/<int:pk>/", views.DetailView.as_view(), name="detail"),
+    # Post Write
     path("write/", views.Write.as_view(), name="write"),
-    # 글 수정
-    # 글 삭제
-    # 코멘트 작성
-    # 코멘트 삭제
-]
+    # Post Update
+    path("detail/<int:pk>/edit/", views.Update.as_view(), name="edit"),
+    # Post Delete
+    path("detail/<int:pk>/delete/", views.Delete.as_view(), name="delete"),
+    # Comment Write
+    path("detail/<int:pk>/comment/write/", views.CommentWrite.as_view(), name="cm-write"),
+    # Comment Delete
+    path("detail/comment/<int:pk>/delete/", views.CommentDelete.as_view(), name="cm-delete"),
+    # HashTag Write
+    path("datail/<int:pk>/hashtag/write/", views.HashTagWrite.as_view(), name="tag-write"),
+    # HashTag Delete
+    path("detail/<int:pk>/hashtag/delete/", views.HashTagDelete.as_view(), name="tag-delete"),
+]   

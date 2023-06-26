@@ -1,0 +1,18 @@
+{% extends 'blog/base.html' %} 
+
+{% block content %}
+<form action="" method="post">
+  {% csrf_token %} {{ form.title.label_tag }}
+  <input
+    typs="text"
+    name="{{ form.title.name }}"
+    value="{{ form.initial.title }}"
+  /><br />
+  {{ form.contant.label_tag }}
+  <textarea typs="text" name="{{ form.content.name }}">
+{{ form.initial.content }}</textarea
+  >
+  <br />
+  <input type="submit" />
+</form>
+{% endblock %}
